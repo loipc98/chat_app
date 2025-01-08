@@ -5,8 +5,10 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.chatapp.ui.screens.listchat.ListChatScreen
 import com.example.chatapp.ui.screens.login.LoginScreen
 import com.example.chatapp.ui.screens.register.RegisterScreen
+import com.example.chatapp.utils.Contains.ALL_CHAT_SCREEN
 import com.example.chatapp.utils.Contains.LOGIN_SCREEN
 import com.example.chatapp.utils.Contains.REGISTER_SCREEN
 
@@ -24,15 +26,23 @@ fun SetupNavigation(
             route = LOGIN_SCREEN,
         ) {
             LoginScreen(
-                navigateToRegisterScreen = screens.navigateToRegisterScreen
+                navigateToRegisterScreen = screens.navigateToRegisterScreen,
+                navigateToAllChatScreen = screens.navigateToAllChatScreen
             )
         }
+
         composable(
             route = REGISTER_SCREEN
         ) {
             RegisterScreen(
                 navigateToLoginScreen = screens.navigateToLoginScreen
             )
+        }
+
+        composable(
+            route = ALL_CHAT_SCREEN
+        ) {
+            ListChatScreen()
         }
     }
 }

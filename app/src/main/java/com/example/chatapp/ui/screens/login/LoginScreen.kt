@@ -36,7 +36,8 @@ import com.example.chatapp.ui.theme.getLoginLogoutBackground
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
-    navigateToRegisterScreen: () -> Unit
+    navigateToRegisterScreen: () -> Unit,
+    navigateToAllChatScreen: () -> Unit
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize().background(Color.Green),
@@ -47,22 +48,19 @@ fun LoginScreen(
                     containerColor = getLoginLogoutBackground(),
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
-                title = {
-                    Row(
-                        modifier = Modifier.fillMaxSize().padding(horizontal = 16.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        Text(
-                            modifier = Modifier.clickable{
-                                navigateToRegisterScreen()
-                            },
-                            text = "Register",
-                            color = NormalTextColor,
-                            fontSize = 16.sp,
-                            style = MaterialTheme.typography.bodySmall,
-                        )
-                    }
+                title = {},
+                actions = {
+                    Text(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .clickable{
+                            navigateToRegisterScreen()
+                        },
+                        text = "Register",
+                        color = NormalTextColor,
+                        fontSize = 16.sp,
+                        style = MaterialTheme.typography.bodySmall,
+                    )
                 }
             )
         }
@@ -105,7 +103,9 @@ fun LoginScreen(
             }
             CustomTextButton(
                 text = "Sign In",
-                onClick = {}
+                onClick = {
+                    navigateToAllChatScreen()
+                }
             )
         }
     }
@@ -115,6 +115,7 @@ fun LoginScreen(
 @Composable
 fun LoginScreenPreview() {
     LoginScreen(
-        navigateToRegisterScreen = {}
+        navigateToRegisterScreen = {},
+        navigateToAllChatScreen = {}
     )
 }
