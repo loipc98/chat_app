@@ -30,3 +30,6 @@ val NormalImageColor = Color.White
 val NormalOutlineTextColor = Color.White
 val HintTextColor = Color(0xFFDEDEDE)
 val TextButtonColor = LightBlue
+val BorderAvatarColor = LightBlue
+val ChatDividerColor = Color(0xFFD5D7DC)
+val FloatActionButtonColor = LightBlue
